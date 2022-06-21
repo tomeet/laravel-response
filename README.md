@@ -13,13 +13,7 @@
 [![License](http://poser.pugx.org/tomeet/laravel-response/license)](https://packagist.org/packages/tomeet/laravel-response)
 
 ## 社区讨论文章
-- [转自Jiannei/laravel-response]
-- [是时候使用 Lumen 8 + API Resource 开发项目了！](https://learnku.com/articles/45311)
-- [教你更优雅地写 API 之「路由设计」](https://learnku.com/articles/45526)
-- [教你更优雅地写 API 之「规范响应数据」](https://learnku.com/articles/52784)
-- [教你更优雅地写 API 之「枚举使用」](https://learnku.com/articles/53015)
-- [教你更优雅地写 API 之「记录日志」](https://learnku.com/articles/53669)
-- [教你更优雅地写 API 之「灵活地任务调度」](https://learnku.com/articles/58403)
+- [转自Jiannei/laravel-response](https://github.com/Jiannei/laravel-response)
 
 ## 介绍
 
@@ -45,14 +39,14 @@
 
 ## 安装
 
-自定义业务操作码部分依赖于  [jiannei/laravel-enum](https://github.com/tomeet/laravel-enum)，需要先进行安装。
+自定义业务操作码部分依赖于  [tomeet/laravel-enum](https://github.com/tomeet/laravel-enum)，需要先进行安装。
 
 
 ```shell
 # laravel 8.x - 9.x
 
-composer require Tomeet/laravel-response "^4.0" -vvv
-composer require jiannei/laravel-enum "^3.0" -vvv # 可选
+composer require tomeet/laravel-response
+composer require tomeet/laravel-enum
 ```
 
 ## 配置
