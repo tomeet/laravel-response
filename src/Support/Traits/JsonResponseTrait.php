@@ -78,7 +78,7 @@ trait JsonResponseTrait
      * @param  int  $option
      * @return JsonResponse|JsonResource
      */
-    public function ok(string $message = '', int $code = 200, array $headers = [], int $option = 0)
+    public function ok(int $code = 200, string $message = '', array $headers = [], int $option = 0)
     {
         return $this->success([], $message, $code, $headers, $option);
     }
@@ -169,7 +169,7 @@ trait JsonResponseTrait
      *
      * @throws HttpResponseException
      */
-    public function fail(string $message = '', int $code = 500, $errors = null, array $header = [], int $options = 0)
+    public function fail(int $code = 500, string $message = '', $errors = null, array $header = [], int $options = 0)
     {
         $response = $this->response(
             $this->formatData(null, $message, $code, $errors),
@@ -195,7 +195,7 @@ trait JsonResponseTrait
      * @param  int  $option
      * @return JsonResponse|JsonResource
      */
-    public function success($data = [], string $message = '', int $code = 200, array $headers = [], int $option = 0)
+    public function success($data = [], int $code = 200, string $message = '', array $headers = [], int $option = 0)
     {
         if ($data instanceof ResourceCollection) {
             return $this->formatResourceCollectionResponse(...func_get_args());
