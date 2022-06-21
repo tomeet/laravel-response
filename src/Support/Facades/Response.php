@@ -36,6 +36,6 @@ class Response extends IlluminateFacade
 {
     protected static function getFacadeAccessor()
     {
-        return \Tomeet\Response\Laravel\ProvidersResponse\Laravel\Response::class;
+        return \Tomeet\Response\Laravel\Response::class;
     }
 }
