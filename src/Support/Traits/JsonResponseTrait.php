@@ -173,7 +173,7 @@ trait JsonResponseTrait
     {
         $response = $this->response(
             $this->formatData(null, $message, $code, $errors),
-            config('response.error_code') ?: $code,
+            Config::get('tomeet.response.error_code') ?: $code,
             $header,
             $options
         );
@@ -288,7 +288,7 @@ trait JsonResponseTrait
             $status = 'success';
         }
 
-        if (! $message && class_exists($enumClass = config('response.enum'))) {
+        if (! $message && class_exists($enumClass = Config::get('tomeet.response.enum'))) {
             $message = $enumClass::fromValue($originalCode)->description;
         }
 
@@ -298,7 +298,7 @@ trait JsonResponseTrait
             'message' => $message,
             'data' => $data ?: (object) $data,
             'error' => $errors ?: (object) [],
-        ], config('response.format.fields', []));
+        ], Config::get('tomeet.response.format.fields', []));
     }
 
     /**
