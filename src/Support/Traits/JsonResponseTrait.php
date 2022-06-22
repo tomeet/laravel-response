@@ -71,9 +71,9 @@ trait JsonResponseTrait
 
     /**
      * Alias of success method, no need to specify data parameter.
-     *
-     * @param  string  $message
+     * 
      * @param  int  $code
+     * @param  string  $message
      * @param  array  $headers
      * @param  int  $option
      * @return JsonResponse|JsonResource
@@ -160,8 +160,8 @@ trait JsonResponseTrait
     /**
      * Return an fail response.
      *
-     * @param  string  $message
      * @param  int  $code
+     * @param  string  $message
      * @param  array|null  $errors
      * @param  array  $header
      * @param  int  $options
@@ -189,8 +189,8 @@ trait JsonResponseTrait
      * Return an success response.
      *
      * @param  JsonResource|array|mixed  $data
-     * @param  string  $message
      * @param  int  $code
+     * @param  string  $message
      * @param  array  $headers
      * @param  int  $option
      * @return JsonResponse|JsonResource
