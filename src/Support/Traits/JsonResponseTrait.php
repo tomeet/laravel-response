@@ -220,13 +220,13 @@ trait JsonResponseTrait
      * Format normal array data.
      *
      * @param  array|null  $data
-     * @param  string  $message
      * @param  int  $code
+     * @param  string  $message
      * @param  array  $headers
      * @param  int  $option
      * @return JsonResponse
      */
-    protected function formatArrayResponse(array $data, string $message = '', int $code = 200, array $headers = [], int $option = 0): JsonResponse
+    protected function formatArrayResponse(array $data,  int $code = 200, string $message = '', array $headers = [], int $option = 0): JsonResponse
     {
         return $this->response($this->formatData($data, $message, $code), $code, $headers, $option);
     }
@@ -305,13 +305,13 @@ trait JsonResponseTrait
      * Format paginated response.
      *
      * @param  AbstractPaginator  $resource
-     * @param  string  $message
      * @param  int  $code
+     * @param  string  $message
      * @param  array  $headers
      * @param  int  $option
      * @return mixed
      */
-    protected function formatPaginatedResponse($resource, string $message = '', $code = 200, array $headers = [], $option = 0)
+    protected function formatPaginatedResponse($resource, int $code = 200, string $message = '', array $headers = [], $option = 0)
     {
         $paginated = $resource->toArray();
 
@@ -351,13 +351,13 @@ trait JsonResponseTrait
      * Format collection resource response.
      *
      * @param  JsonResource  $resource
-     * @param  string  $message
      * @param  int  $code
+     * @param  string  $message
      * @param  array  $headers
      * @param  int  $option
      * @return mixed
      */
-    protected function formatResourceCollectionResponse($resource, string $message = '', int $code = 200, array $headers = [], int $option = 0)
+    protected function formatResourceCollectionResponse($resource, int $code = 200, string $message = '', array $headers = [], int $option = 0)
     {
         $data = array_merge_recursive(['data' => $resource->resolve(request())], $resource->with(request()), $resource->additional);
         if ($resource->resource instanceof AbstractPaginator) {
@@ -385,13 +385,13 @@ trait JsonResponseTrait
      * Format JsonResource Data.
      *
      * @param  JsonResource  $resource
-     * @param  string  $message
      * @param  int  $code
+     * @param  string  $message
      * @param  array  $headers
      * @param  int  $option
      * @return mixed
      */
-    protected function formatResourceResponse($resource, string $message = '', $code = 200, array $headers = [], $option = 0)
+    protected function formatResourceResponse($resource, int $code = 200, string $message = '', array $headers = [], $option = 0)
     {
         $resourceData = array_merge_recursive($resource->resolve(request()), $resource->with(request()), $resource->additional);
 
