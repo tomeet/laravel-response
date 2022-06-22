@@ -32,7 +32,7 @@ trait JsonResponseTrait
      */
     public function accepted($data = [], string $message = '', string $location = '')
     {
-        $response = $this->success($data, $message, 202);
+        $response = $this->success($data, 202, $message);
         if ($location) {
             $response->header('Location', $location);
         }
@@ -50,7 +50,7 @@ trait JsonResponseTrait
      */
     public function created($data = [], string $message = '', string $location = '')
     {
-        $response = $this->success($data, $message, 201);
+        $response = $this->success($data, 201, $message);
         if ($location) {
             $response->header('Location', $location);
         }
@@ -66,7 +66,7 @@ trait JsonResponseTrait
      */
     public function noContent(string $message = '')
     {
-        return $this->success([], $message, 204);
+        return $this->success([], 204, $message);
     }
 
     /**
@@ -80,7 +80,7 @@ trait JsonResponseTrait
      */
     public function ok(int $code = 200, string $message = '', array $headers = [], int $option = 0)
     {
-        return $this->success([], $message, $code, $headers, $option);
+        return $this->success([], $code, $message, $headers, $option);
     }
 
     /**
@@ -94,7 +94,7 @@ trait JsonResponseTrait
      */
     public function localize(int $code = 200, array $headers = [], int $option = 0)
     {
-        return $this->ok('', $code, $headers, $option);
+        return $this->ok($code, '', $headers, $option);
     }
 
     /**
@@ -104,7 +104,7 @@ trait JsonResponseTrait
      */
     public function errorBadRequest(string $message = '')
     {
-        $this->fail($message, 400);
+        $this->fail(400, $message);
     }
 
     /**
@@ -114,7 +114,7 @@ trait JsonResponseTrait
      */
     public function errorUnauthorized(string $message = '')
     {
-        $this->fail($message, 401);
+        $this->fail(401, $message);
     }
 
     /**
@@ -124,7 +124,7 @@ trait JsonResponseTrait
      */
     public function errorForbidden(string $message = '')
     {
-        $this->fail($message, 403);
+        $this->fail(403, $message);
     }
 
     /**
@@ -134,7 +134,7 @@ trait JsonResponseTrait
      */
     public function errorNotFound(string $message = '')
     {
-        $this->fail($message, 404);
+        $this->fail(404, $message);
     }
 
     /**
@@ -144,7 +144,7 @@ trait JsonResponseTrait
      */
     public function errorMethodNotAllowed(string $message = '')
     {
-        $this->fail($message, 405);
+        $this->fail(405, $message);
     }
 
     /**
