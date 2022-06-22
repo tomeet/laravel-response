@@ -35,7 +35,7 @@ trait ExceptionTrait
     {
         // 要求请求头 header 中包含 /json 或 +json，如：Accept:application/json
         // 或者是 ajax 请求，header 中包含 X-Requested-With：XMLHttpRequest;
-        $exceptionConfig = Arr::get(Config::get('tomeet.response.exception'), get_class($e));
+        $exceptionConfig = Arr::get(config('response.exception'), get_class($e));
         $isHttpException = $this->isHttpException($e);
 
         $message = $exceptionConfig['message'] ?? ($isHttpException ? $e->getMessage() : 'Server Error');
@@ -65,7 +65,7 @@ trait ExceptionTrait
 
         return Response::fail(
             is_array($firstMessage) ? Arr::first($firstMessage) : $firstMessage,
-            Arr::get(Config::get('tomeet.response.exception'), ValidationException::class.'.code', 422),
+            Arr::get(config('response.exception'), ValidationException::class.'.code', 422),
             $errors
         );
     }
@@ -81,7 +81,7 @@ trait ExceptionTrait
     {
         return Response::fail(
             $exception->validator->errors()->first(),
-            Arr::get(Config::get('tomeet.response.exception'), ValidationException::class.'.code', 422),
+            Arr::get(config('response.exception'), ValidationException::class.'.code', 422),
             $exception->errors()
         );
     }
@@ -95,7 +95,7 @@ trait ExceptionTrait
      */
     protected function unauthenticated($request, AuthenticationException $exception)
     {
-        $exceptionConfig = Arr::get(Config::get('tomeet.response.exception'), AuthenticationException::class);
+        $exceptionConfig = Arr::get(config('response.exception'), AuthenticationException::class);
 
         return $request->expectsJson()
             ? Response::errorUnauthorized($exceptionConfig['message'] ?? $exception->getMessage())
