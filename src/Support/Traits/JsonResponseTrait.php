@@ -213,7 +213,7 @@ trait JsonResponseTrait
             $data = $data->toArray();
         }
 
-        return $this->formatArrayResponse(Arr::wrap($data), $message, $code, $headers, $option);
+        return $this->formatArrayResponse(Arr::wrap($data), $code, $message, $headers, $option);
     }
 
     /**
