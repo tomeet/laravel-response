@@ -25,7 +25,7 @@ class LaravelServiceProvider extends ServiceProvider
         $path = dirname(__DIR__, 2).'/config/response.php';
 
         if ($this->app->runningInConsole()) {
-            $this->publishes([$path => config_path('response.php')], 'response');
+            $this->publishes([$path => config_path('tomeet/response.php')], 'response');
         }
 
         $this->mergeConfigFrom($path, 'response');
