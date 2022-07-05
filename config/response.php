@@ -29,10 +29,10 @@ return [
     //
     // The following two enumeration packages are good choices
     //
-    // https://github.com/Jiannei/laravel-enum
+    // https://github.com/Tomeet/laravel-enum
     // https://github.com/BenSampo/laravel-enum
 
-    'enum' => '', // \Jiannei\Enum\Laravel\Repositories\Enums\HttpStatusCodeEnum::class
+    'enum' => '', // \Tomeet\Enum\Laravel\Repositories\Enums\HttpStatusCodeEnum::class
 
     //  You can set some attributes (eg:code/message/header/options) for the exception, and it will override the default attributes of the exception
     'exception' => [
