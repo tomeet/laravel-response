@@ -30,12 +30,12 @@ use Illuminate\Support\Facades\Facade as IlluminateFacade;
  * @method static void errorInternal(string $message = '')
  * @method static JsonResponse fail(string $message = '', int $code = 500, $errors = null, array $header = [], int $options = 0)
  *
- * @see \Jiannei\Response\Laravel\Response
+ * @see \Tomeet\Response\Laravel\Response
  */
 class Response extends IlluminateFacade
 {
     protected static function getFacadeAccessor()
     {
-        return \Jiannei\Response\Laravel\Response::class;
+        return \Tomeet\Response\Laravel\Response::class;
     }
 }
